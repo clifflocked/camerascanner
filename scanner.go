@@ -11,8 +11,9 @@ func main() {
 	out, err := exec.Command("ls", "/dev/v4l/by-id/").Output()
 	if err != nil {}
 
-	devices := strings.Split(string(out), " ")
-	//fmt.Println(devices)
+	devices := strings.Split(string(out), "index1")
+	device = devices[:len(devices)-1]
+	
 	var sNums []string
 	serial := ""
 
