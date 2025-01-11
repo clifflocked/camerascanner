@@ -4,14 +4,12 @@ import (
 	"fmt"
 	"os/exec"
 	"strings"	
-	"log"
+	//"log"
 )
 
 func main() {
 	out, err := exec.Command("ls", "/dev/v4l/by-id/", "|", "grep", "video0").Output()
-	if err != nil {
-		log.Fatal(err)
-	}
+	if err != nil {}
 
 	devices := strings.Split(string(out), "\n ")
 	var sNums []string
@@ -19,13 +17,13 @@ func main() {
 
 	for _, e := range devices {
 		start := strings.Index(e, "Camera_")
-		for j := 0; j < 10; j++ {
+		for j := 1; j < 10; j++ {
 			if string(e[start + j]) == "-" {
 				sNums = append(sNums, serial)
 				serial = ""
 				break
 			} else {
-				serial += string(e[start+j])
+				serial += string(e[start + j])
 			}
 		}
 	}
