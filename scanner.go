@@ -12,8 +12,8 @@ func main() {
 	if err != nil {}
 
 	devices := strings.Split(string(out), "index1")
-	device = devices[:len(devices)-1]
-	
+	devices = devices[:len(devices)-1]
+
 	var sNums []string
 	serial := ""
 
