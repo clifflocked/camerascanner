@@ -8,17 +8,18 @@ import (
 )
 
 func main() {
-	out, err := exec.Command("ls", "/dev/v4l/by-id/", "|", "grep", "video0").Output()
+	out, err := exec.Command("ls", "/dev/v4l/by-id/").Output()
 	if err != nil {}
 
-	devices := strings.Split(string(out), "\n ")
+	devices := strings.Split(string(out), " ")
+	//fmt.Println(devices)
 	var sNums []string
 	serial := ""
 
 	for _, e := range devices {
-		start := strings.Index(e, "Camera_")
-		for j := 1; j < 10; j++ {
-			if string(e[start + j]) == "-" {
+		start := strings.Index(e, "Camera") + 5
+		for j := 2; j < 100; j++ {
+			if string(e[start + j]) == "n" {
 				sNums = append(sNums, serial)
 				serial = ""
 				break
