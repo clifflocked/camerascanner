@@ -19,7 +19,7 @@ func main() {
 	for _, e := range devices {
 		start := strings.Index(e, "Camera") + 5
 		for j := 2; j < 100; j++ {
-			if string(e[start + j]) == "n" {
+			if string(e[start + j]) == "-" {
 				sNums = append(sNums, serial)
 				serial = ""
 				break
