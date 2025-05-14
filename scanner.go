@@ -27,9 +27,9 @@ func main() {
 				sNums = append(sNums, serial + ":" + string(e[len(e) - 2]))
 				serial = ""
 				break
-			} else {
-				serial += string(e[start + j])
 			}
+
+			serial += string(e[start + j])
 		}
 	}
 	fmt.Print(sNums)
